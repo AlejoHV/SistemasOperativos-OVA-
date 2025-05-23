@@ -3,7 +3,7 @@ package com.example.sistemas.ovasistemaso.service;
 public class NativeSJF {
     static {
         try {
-            System.loadLibrary("libalgoritmo");
+	    System.load("/app/native/libalgoritmo.so");
         } catch (UnsatisfiedLinkError e) {
             System.err.println("Error cargando la librería nativa: " + e.getMessage());
         }
