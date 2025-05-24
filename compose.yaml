@@ -1,9 +1,9 @@
 services:
-  ova-costos:
+  ova-sistemas:
     image: alejandro/ova-sistemas:latest
     container_name: ova-sistemas
     ports:
-      - "8080:8080"
+      - "8083:8080"
     profiles:
       - app
     networks:

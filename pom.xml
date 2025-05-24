@@ -85,6 +85,15 @@
                 </configuration>
             </plugin>
         </plugins>
+	<resources>
+        <resource>
+            <directory>lib</directory>
+            <targetPath>${project.build.outputDirectory}/lib</targetPath>
+            <includes>
+                <include>libalgoritmo.so</include>
+            </includes>
+        </resource>
+    </resources>
     </build>
 
 </project>
