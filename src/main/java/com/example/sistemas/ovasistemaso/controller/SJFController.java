@@ -14,7 +14,7 @@ public class SJFController {
     private final NativeSJF nativeSJF = new NativeSJF();
 
     @PostMapping
-    public int ejecutarSJF(@RequestBody SJFRequest request) {
+    public int[] ejecutarSJF(@RequestBody SJFRequest request) {
         return nativeSJF.scheduleSJF(
                 request.getIds(),
                 request.getArrivals(),
