@@ -1,0 +1,87 @@
+✅ 1. Escenario básico: procesos con diferentes tiempos de ráfaga
+curl -X POST http://localhost:8080/api/sjf \
+  -H "Content-Type: application/json" \
+  -d '{
+    "ids": [1, 2, 3],
+    "arrivals": [0, 2, 4],
+    "bursts": [5, 3, 1]
+}'
+Output esperado:
+
+{
+  "resultado": [3, 2, 1],
+  "mensaje": "Algoritmo SJF ejecutado correctamente"
+}
+
+✅ 2. Tiempos de ráfaga iguales (orden por llegada)
+curl -X POST http://localhost:8080/api/sjf \
+  -H "Content-Type: application/json" \
+  -d '{
+    "ids": [1, 2, 3],
+    "arrivals": [0, 1, 2],
+    "bursts": [4, 4, 4]
+}'
+Output esperado:
+
+{
+  "resultado": [1, 2, 3],
+  "mensaje": "Algoritmo SJF ejecutado correctamente"
+}
+
+✅ 3. Un solo proceso (caso trivial)
+curl -X POST http://localhost:8080/api/sjf \
+  -H "Content-Type: application/json" \
+  -d '{
+    "ids": [1],
+    "arrivals": [0],
+    "bursts": [5]
+}'
+Output esperado:
+
+{
+  "resultado": [1],
+  "mensaje": "Algoritmo SJF ejecutado correctamente"
+}
+
+✅ 4. Longitudes desiguales (error esperado)
+curl -X POST http://localhost:8080/api/sjf \
+  -H "Content-Type: application/json" \
+  -d '{
+    "ids": [1, 2],
+    "arrivals": [0, 1, 2],
+    "bursts": [5, 3]
+}'
+Output esperado:
+
+{
+  "error": "Todos los arreglos deben tener la misma longitud"
+}
+
+✅ 5. Campos nulos (error esperado)
+curl -X POST http://localhost:8080/api/sjf \
+  -H "Content-Type: application/json" \
+  -d '{
+    "ids": null,
+    "arrivals": null,
+    "bursts": null
+}'
+Output esperado:
+
+{
+  "error": "Los campos ids, arrivals y bursts son obligatorios"
+}
+
+---------------------------------------------------
+🛠 Cómo compilar y ejecutar el proyecto SJF
+
+✅ Desde JAR:
+1. Compilar:
+   mvn clean package
+2. Ejecutar:
+   java -jar target/OVA-Sistemas-O-0.0.1-SNAPSHOT.jar
+
+✅ Desde Docker:
+1. Construir imagen:
+   docker build -t alejohernandez/ova-sistemas:latest .
+2. Ejecutar contenedor (con puerto publicado):
+   docker run -p 8080:8080 alejohernandez/ova-sistemas:latest
