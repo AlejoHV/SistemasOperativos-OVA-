@@ -144,5 +144,5 @@ jobs:
           command_timeout: 10m
           script: |
             cd ~/app-receiver-iot
-            sudo docker-compose pull
-            sudo docker-compose up -d
+            sudo docker compose --profile app pull
+            sudo docker compose --profile app up -d
