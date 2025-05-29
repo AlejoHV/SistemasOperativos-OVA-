@@ -91,6 +91,7 @@ jobs:
           docker build -t alejohernandez/ova-sistemas:latest .
           docker push alejohernandez/ova-sistemas:latest
 
+  #Fase de despliegle
   deploy:
     if: true
     needs: build-and-publish
@@ -144,4 +145,4 @@ jobs:
           script: |
             cd ~/app-receiver-iot
             sudo docker compose --profile app pull
-            sudo docker compose --profile app up -d          
+            sudo docker compose --profile app up -d
