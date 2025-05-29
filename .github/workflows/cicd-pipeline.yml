@@ -10,7 +10,7 @@ on:
 
 jobs:
   test:
-    if: true
+    if: false
     runs-on: ubuntu-latest
 
     permissions:
@@ -92,7 +92,7 @@ jobs:
           docker push alejohernandez/ova-sistemas:latest
 
   deploy:
-    if: false
+    if: true
     needs: build-and-publish
     runs-on: ubuntu-latest
 
