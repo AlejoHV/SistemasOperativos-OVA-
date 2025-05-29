@@ -92,7 +92,7 @@ jobs:
           docker push alejohernandez/ova-sistemas:latest
 
   deploy:
-    if: true
+    if: false
     needs: build-and-publish
     runs-on: ubuntu-latest
 
