@@ -1,6 +1,6 @@
 services:
   ova-sistemas:
-    image: alejandro/ova-sistemas:latest
+    image: alejohernandez/ova-sistemas:latest
     container_name: ova-sistemas
     ports:
       - "8080:8080"
